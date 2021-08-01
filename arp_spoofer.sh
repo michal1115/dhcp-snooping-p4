@@ -1,0 +1,1 @@
+python arp_spoofer.py -victim_mac=08:00:00:00:00:01 -victim_ip=10.0.0.111 -spoofed_addr=10.0.0.114
