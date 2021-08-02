@@ -14,12 +14,14 @@ def handle_packet(packet):
         DHCP_MESSAGE_HANDLERS[get_dhcp_message_type(packet)](packet)
 
 def handle_dhcp_discover(packet):
+    print("Received dhcp discover")
     if len(cli_address_pool) > 0:
         time.sleep(after_discover_sleep)
         client_mac = packet[BOOTP].chaddr
         send_dhcp_response(get_dhcp_options('offer'), cli_address_pool[0], client_mac)
 
 def handle_dhcp_request(packet):
+    print("Received dhcp request")
     client_mac = packet[BOOTP].chaddr
     server_address = get_dhcp_field(packet, 'server_id')
     requested_client_address = get_dhcp_field(packet, 'requested_addr')

@@ -80,7 +80,11 @@ header bootp_t {
     bit<32> magicCookie;
 }
 
-header dhcp_option_code_t {
+header dhcp_option_t {
+    bit<8> option;
+}
+
+header dhcp_option_with_length_t {
     bit<8> option;
     bit<8> length;
 }
@@ -134,6 +138,7 @@ struct headers {
     dhcp_message_type_t         dhcp_message_type;
     dhcp_server_identifier_t    dhcp_server_identifier;
     dhcp_requested_ip_address_t dhcp_requested_ip_address;
+    dhcp_end_t                  dhcp_end;
 }
 
 /*************************************************************************
@@ -160,8 +165,78 @@ parser MyParser(packet_in packet,
     state parse_ipv4 {
         packet.extract(hdr.ipv4);
         transition select (hdr.ipv4.protocol) {
+            PROTOCOL_UDP: parse_udp;
             default: accept; 
         }
+    }
+
+    state parse_udp {
+        packet.extract(hdr.udp);
+        transition select (hdr.udp.srcPort) {
+            DHCP_SERVER: parse_bootp;
+            DHCP_CLIENT: parse_bootp;
+            default: accept; 
+        }
+    }
+
+    state parse_bootp {
+        packet.extract(hdr.bootp);
+        transition select (hdr.bootp.magicCookie) {
+            DHCP_MAGIC_COOKIE: parse_dhcp_option;
+            default: accept; 
+        }
+    }
+
+    state parse_dhcp_option {
+        dhcp_option_t option = packet.lookahead<dhcp_option_t>();
+        transition select (option.option) {
+            1:      parse_dhcp_subnet_mask;
+            3:      parse_dhcp_router;
+            50:     parse_requested_ip_address;
+            53:     parse_dhcp_message_type;
+            54:     parse_dhcp_server_identifier;
+            255:    parse_dhcp_end;
+            default: skip_unknown_option; 
+        }
+    }
+
+    state parse_dhcp_subnet_mask {
+        packet.extract(hdr.dhcp_subnet_mask);
+        transition parse_dhcp_option;
+    }
+
+    state parse_dhcp_router {
+        packet.extract(hdr.dhcp_router);
+        transition parse_dhcp_option;
+    }
+    
+    state parse_requested_ip_address {
+        packet.extract(hdr.dhcp_requested_ip_address);
+        transition parse_dhcp_option;
+    }
+
+    state parse_dhcp_message_type {
+        packet.extract(hdr.dhcp_message_type);
+        transition parse_dhcp_option;
+    }
+
+    state parse_dhcp_server_identifier {
+        packet.extract(hdr.dhcp_server_identifier);
+        transition parse_dhcp_option;
+    }
+
+    state parse_dhcp_end {
+        packet.extract(hdr.dhcp_end);
+        transition parse_dhcp_option;
+    }
+    
+    state skip_unknown_option {
+        dhcp_option_with_length_t option = packet.lookahead<dhcp_option_with_length_t>();
+        bit<32> option_type_field_bits = 8; 
+        bit<32> length_field_bits = 8;
+        bit<32> option_value_bits = 8 * (bit<32>)option.length;
+        packet.advance(option_type_field_bits + length_field_bits + option_value_bits);
+        transition parse_dhcp_option;
     }
 }
 
@@ -208,8 +283,26 @@ control MyIngress(inout headers hdr,
         default_action = broadcast();
     }
 
+    table dhcp_server_check {
+        key = {
+            standard_metadata.ingress_port: exact;
+        }
+        actions = {
+            broadcast;
+            drop;
+            NoAction;
+        }
+        size = 1024;
+        default_action = broadcast();
+    }
+
     apply {
-        ether_lpm.apply();
+        if (hdr.ethernet.isValid() && hdr.ipv4.isValid() && hdr.udp.isValid() && hdr.bootp.isValid() && hdr.dhcp_message_type.isValid() 
+            && (hdr.dhcp_message_type.type == 2 || hdr.dhcp_message_type.type == 5 || hdr.dhcp_message_type.type == 6)){
+                dhcp_server_check.apply();
+        } else if (hdr.ethernet.isValid()){
+            ether_lpm.apply();
+        }
     }
 }
 
@@ -245,7 +338,16 @@ control MyComputeChecksum(inout headers  hdr, inout metadata meta) {
 control MyDeparser(packet_out packet, in headers hdr) {
     apply {
         packet.emit(hdr.ethernet);
+        packet.emit(hdr.arp);
         packet.emit(hdr.ipv4);
+        packet.emit(hdr.udp);
+        packet.emit(hdr.bootp);
+        packet.emit(hdr.dhcp_subnet_mask);
+        packet.emit(hdr.dhcp_router);
+        packet.emit(hdr.dhcp_message_type);
+        packet.emit(hdr.dhcp_server_identifier);
+        packet.emit(hdr.dhcp_requested_ip_address);
+        packet.emit(hdr.dhcp_end);
     }
 }
 

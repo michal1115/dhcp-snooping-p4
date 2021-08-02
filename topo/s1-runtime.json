@@ -48,6 +48,20 @@
       "action_params": {
         "port": 4
       }
+    },
+    {
+      "table": "MyIngress.dhcp_server_check",
+      "match": {
+        "standard_metadata.ingress_port": [2]
+      },
+      "action_name": "MyIngress.broadcast",
+      "action_params": { }
+    },
+    {
+      "table": "MyIngress.dhcp_server_check",
+      "default_action": true,
+      "action_name": "MyIngress.drop",
+      "action_params": { }
     }
   ],
   "multicast_group_entries" : [

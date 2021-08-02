@@ -31,6 +31,7 @@ def is_packet_from_trusted_dhcp_server(packet):
 
 def handle_dhcp_offer(packet):
     global requested_client_address
+    print("Received dhcp offer")
     client_address = packet[BOOTP].ciaddr
     address_from_server = packet[BOOTP].yiaddr
     server_address = packet[BOOTP].siaddr
@@ -45,6 +46,7 @@ def handle_dhcp_offer(packet):
 
 def handle_dhcp_ack(packet):
     global requested_client_address
+    print("Received dhcp ack")
     configure_from_dhcp(packet)
 
 def configure_from_dhcp(packet):
@@ -61,6 +63,7 @@ def configure_from_dhcp(packet):
 
 def handle_dhcp_nak(packet):
     global requested_client_address
+    print("Received dhcp nak")
     required_client_address = None
 
 DHCP_MESSAGE_HANDLERS = {
