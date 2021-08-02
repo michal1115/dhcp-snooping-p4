@@ -80,7 +80,11 @@ header bootp_t {
     bit<32> magicCookie;
 }
 
-header dhcp_option_code_t {
+header dhcp_option_t {
+    bit<8> option;
+}
+
+header dhcp_option_with_length_t {
     bit<8> option;
     bit<8> length;
 }
