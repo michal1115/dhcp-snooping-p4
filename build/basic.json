@@ -3,26 +3,11 @@
     {
       "name" : "scalars_0",
       "id" : 0,
-      "fields" : [
-        ["tmp_0", 16, false],
-        ["reg_pos_one_0", 32, false],
-        ["reg_pos_two_0", 32, false],
-        ["reg_val_one_0", 1, false],
-        ["reg_val_two_0", 1, false],
-        ["_padding_0", 6, false]
-      ]
-    },
-    {
-      "name" : "dhcp_option_code_t",
-      "id" : 1,
-      "fields" : [
-        ["option", 8, false],
-        ["length", 8, false]
-      ]
+      "fields" : []
     },
     {
       "name" : "standard_metadata",
-      "id" : 2,
+      "id" : 1,
       "fields" : [
         ["ingress_port", 9, false],
         ["egress_spec", 9, false],
@@ -45,7 +30,7 @@
     },
     {
       "name" : "ethernet_t",
-      "id" : 3,
+      "id" : 2,
       "fields" : [
         ["dstAddr", 48, false],
         ["srcAddr", 48, false],
@@ -54,7 +39,7 @@
     },
     {
       "name" : "arp_t",
-      "id" : 4,
+      "id" : 3,
       "fields" : [
         ["hdrType", 16, false],
         ["pType", 16, false],
@@ -69,7 +54,7 @@
     },
     {
       "name" : "ipv4_t",
-      "id" : 5,
+      "id" : 4,
       "fields" : [
         ["version", 4, false],
         ["ihl", 4, false],
@@ -87,7 +72,7 @@
     },
     {
       "name" : "udp_t",
-      "id" : 6,
+      "id" : 5,
       "fields" : [
         ["srcPort", 16, false],
         ["dstPort", 16, false],
@@ -97,7 +82,7 @@
     },
     {
       "name" : "bootp_t",
-      "id" : 7,
+      "id" : 6,
       "fields" : [
         ["opCode", 8, false],
         ["hType", 8, false],
@@ -119,7 +104,7 @@
     },
     {
       "name" : "dhcp_subnet_mask_t",
-      "id" : 8,
+      "id" : 7,
       "fields" : [
         ["option", 8, false],
         ["length", 8, false],
@@ -128,7 +113,7 @@
     },
     {
       "name" : "dhcp_router_t",
-      "id" : 9,
+      "id" : 8,
       "fields" : [
         ["option", 8, false],
         ["length", 8, false],
@@ -137,7 +122,7 @@
     },
     {
       "name" : "dhcp_message_type_t",
-      "id" : 10,
+      "id" : 9,
       "fields" : [
         ["option", 8, false],
         ["length", 8, false],
@@ -146,7 +131,7 @@
     },
     {
       "name" : "dhcp_server_identifier_t",
-      "id" : 11,
+      "id" : 10,
       "fields" : [
         ["option", 8, false],
         ["length", 8, false],
@@ -155,7 +140,7 @@
     },
     {
       "name" : "dhcp_requested_ip_address_t",
-      "id" : 12,
+      "id" : 11,
       "fields" : [
         ["option", 8, false],
         ["length", 8, false],
@@ -165,99 +150,85 @@
   ],
   "headers" : [
     {
-      "name" : "option_0",
-      "id" : 0,
-      "header_type" : "dhcp_option_code_t",
-      "metadata" : false,
-      "pi_omit" : true
-    },
-    {
-      "name" : "tmp",
-      "id" : 1,
-      "header_type" : "dhcp_option_code_t",
-      "metadata" : false,
-      "pi_omit" : true
-    },
-    {
       "name" : "scalars",
-      "id" : 2,
+      "id" : 0,
       "header_type" : "scalars_0",
       "metadata" : true,
       "pi_omit" : true
     },
     {
       "name" : "standard_metadata",
-      "id" : 3,
+      "id" : 1,
       "header_type" : "standard_metadata",
       "metadata" : true,
       "pi_omit" : true
     },
     {
       "name" : "ethernet",
-      "id" : 4,
+      "id" : 2,
       "header_type" : "ethernet_t",
       "metadata" : false,
       "pi_omit" : true
     },
     {
       "name" : "arp",
-      "id" : 5,
+      "id" : 3,
       "header_type" : "arp_t",
       "metadata" : false,
       "pi_omit" : true
     },
     {
       "name" : "ipv4",
-      "id" : 6,
+      "id" : 4,
       "header_type" : "ipv4_t",
       "metadata" : false,
       "pi_omit" : true
     },
     {
       "name" : "udp",
-      "id" : 7,
+      "id" : 5,
       "header_type" : "udp_t",
       "metadata" : false,
       "pi_omit" : true
     },
     {
       "name" : "bootp",
-      "id" : 8,
+      "id" : 6,
       "header_type" : "bootp_t",
       "metadata" : false,
       "pi_omit" : true
     },
     {
       "name" : "dhcp_subnet_mask",
-      "id" : 9,
+      "id" : 7,
       "header_type" : "dhcp_subnet_mask_t",
       "metadata" : false,
       "pi_omit" : true
     },
     {
       "name" : "dhcp_router",
-      "id" : 10,
+      "id" : 8,
       "header_type" : "dhcp_router_t",
       "metadata" : false,
       "pi_omit" : true
     },
     {
       "name" : "dhcp_message_type",
-      "id" : 11,
+      "id" : 9,
       "header_type" : "dhcp_message_type_t",
       "metadata" : false,
       "pi_omit" : true
     },
     {
       "name" : "dhcp_server_identifier",
-      "id" : 12,
+      "id" : 10,
       "header_type" : "dhcp_server_identifier_t",
       "metadata" : false,
       "pi_omit" : true
     },
     {
       "name" : "dhcp_requested_ip_address",
-      "id" : 13,
+      "id" : 11,
       "header_type" : "dhcp_requested_ip_address_t",
       "metadata" : false,
       "pi_omit" : true
@@ -306,12 +277,6 @@
               "next_state" : "parse_ipv4"
             },
             {
-              "type" : "hexstr",
-              "value" : "0x0806",
-              "mask" : null,
-              "next_state" : "parse_arp"
-            },
-            {
               "value" : "default",
               "mask" : null,
               "next_state" : null
@@ -325,31 +290,8 @@
           ]
         },
         {
-          "name" : "parse_arp",
-          "id" : 1,
-          "parser_ops" : [
-            {
-              "parameters" : [
-                {
-                  "type" : "regular",
-                  "value" : "arp"
-                }
-              ],
-              "op" : "extract"
-            }
-          ],
-          "transitions" : [
-            {
-              "value" : "default",
-              "mask" : null,
-              "next_state" : null
-            }
-          ],
-          "transition_key" : []
-        },
-        {
           "name" : "parse_ipv4",
-          "id" : 2,
+          "id" : 1,
           "parser_ops" : [
             {
               "parameters" : [
@@ -363,12 +305,6 @@
           ],
           "transitions" : [
             {
-              "type" : "hexstr",
-              "value" : "0x11",
-              "mask" : null,
-              "next_state" : "parse_udp"
-            },
-            {
               "value" : "default",
               "mask" : null,
               "next_state" : null
@@ -380,387 +316,6 @@
               "value" : ["ipv4", "protocol"]
             }
           ]
-        },
-        {
-          "name" : "parse_udp",
-          "id" : 3,
-          "parser_ops" : [
-            {
-              "parameters" : [
-                {
-                  "type" : "regular",
-                  "value" : "udp"
-                }
-              ],
-              "op" : "extract"
-            }
-          ],
-          "transitions" : [
-            {
-              "type" : "hexstr",
-              "value" : "0x0043",
-              "mask" : null,
-              "next_state" : "parse_bootp"
-            },
-            {
-              "type" : "hexstr",
-              "value" : "0x0044",
-              "mask" : null,
-              "next_state" : "parse_bootp"
-            },
-            {
-              "value" : "default",
-              "mask" : null,
-              "next_state" : null
-            }
-          ],
-          "transition_key" : [
-            {
-              "type" : "field",
-              "value" : ["udp", "srcPort"]
-            }
-          ]
-        },
-        {
-          "name" : "parse_bootp",
-          "id" : 4,
-          "parser_ops" : [
-            {
-              "parameters" : [
-                {
-                  "type" : "regular",
-                  "value" : "bootp"
-                }
-              ],
-              "op" : "extract"
-            }
-          ],
-          "transitions" : [
-            {
-              "type" : "hexstr",
-              "value" : "0x63825363",
-              "mask" : null,
-              "next_state" : "parse_dhcp_option"
-            },
-            {
-              "value" : "default",
-              "mask" : null,
-              "next_state" : null
-            }
-          ],
-          "transition_key" : [
-            {
-              "type" : "field",
-              "value" : ["bootp", "magicCookie"]
-            }
-          ]
-        },
-        {
-          "name" : "parse_dhcp_option",
-          "id" : 5,
-          "parser_ops" : [
-            {
-              "parameters" : [
-                {
-                  "type" : "field",
-                  "value" : ["scalars", "tmp_0"]
-                },
-                {
-                  "type" : "lookahead",
-                  "value" : [0, 16]
-                }
-              ],
-              "op" : "set"
-            },
-            {
-              "parameters" : [
-                {
-                  "parameters" : [
-                    {
-                      "type" : "header",
-                      "value" : "tmp"
-                    }
-                  ],
-                  "op" : "add_header"
-                }
-              ],
-              "op" : "primitive"
-            },
-            {
-              "parameters" : [
-                {
-                  "type" : "field",
-                  "value" : ["tmp", "option"]
-                },
-                {
-                  "type" : "expression",
-                  "value" : {
-                    "type" : "expression",
-                    "value" : {
-                      "op" : "&",
-                      "left" : {
-                        "type" : "expression",
-                        "value" : {
-                          "op" : "&",
-                          "left" : {
-                            "type" : "expression",
-                            "value" : {
-                              "op" : "&",
-                              "left" : {
-                                "type" : "expression",
-                                "value" : {
-                                  "op" : ">>",
-                                  "left" : {
-                                    "type" : "field",
-                                    "value" : ["scalars", "tmp_0"]
-                                  },
-                                  "right" : {
-                                    "type" : "hexstr",
-                                    "value" : "0x8"
-                                  }
-                                }
-                              },
-                              "right" : {
-                                "type" : "hexstr",
-                                "value" : "0xffff"
-                              }
-                            }
-                          },
-                          "right" : {
-                            "type" : "hexstr",
-                            "value" : "0xff"
-                          }
-                        }
-                      },
-                      "right" : {
-                        "type" : "hexstr",
-                        "value" : "0xff"
-                      }
-                    }
-                  }
-                }
-              ],
-              "op" : "set"
-            },
-            {
-              "parameters" : [
-                {
-                  "type" : "field",
-                  "value" : ["tmp", "length"]
-                },
-                {
-                  "type" : "expression",
-                  "value" : {
-                    "type" : "expression",
-                    "value" : {
-                      "op" : "&",
-                      "left" : {
-                        "type" : "expression",
-                        "value" : {
-                          "op" : "&",
-                          "left" : {
-                            "type" : "field",
-                            "value" : ["scalars", "tmp_0"]
-                          },
-                          "right" : {
-                            "type" : "hexstr",
-                            "value" : "0xff"
-                          }
-                        }
-                      },
-                      "right" : {
-                        "type" : "hexstr",
-                        "value" : "0xff"
-                      }
-                    }
-                  }
-                }
-              ],
-              "op" : "set"
-            },
-            {
-              "op" : "primitive",
-              "parameters" : [
-                {
-                  "parameters" : [
-                    {
-                      "type" : "header",
-                      "value" : "option_0"
-                    },
-                    {
-                      "type" : "header",
-                      "value" : "tmp"
-                    }
-                  ],
-                  "op" : "assign_header"
-                }
-              ]
-            }
-          ],
-          "transitions" : [
-            {
-              "type" : "hexstr",
-              "value" : "0x01",
-              "mask" : null,
-              "next_state" : "parse_dhcp_subnet_mask"
-            },
-            {
-              "type" : "hexstr",
-              "value" : "0x03",
-              "mask" : null,
-              "next_state" : "parse_dhcp_router"
-            },
-            {
-              "type" : "hexstr",
-              "value" : "0x32",
-              "mask" : null,
-              "next_state" : "parse_requested_ip_address"
-            },
-            {
-              "type" : "hexstr",
-              "value" : "0x35",
-              "mask" : null,
-              "next_state" : "parse_dhcp_message_type"
-            },
-            {
-              "type" : "hexstr",
-              "value" : "0x36",
-              "mask" : null,
-              "next_state" : "parse_dhcp_server_identifier"
-            },
-            {
-              "type" : "hexstr",
-              "value" : "0xff",
-              "mask" : null,
-              "next_state" : null
-            },
-            {
-              "value" : "default",
-              "mask" : null,
-              "next_state" : null
-            }
-          ],
-          "transition_key" : [
-            {
-              "type" : "field",
-              "value" : ["option_0", "option"]
-            }
-          ]
-        },
-        {
-          "name" : "parse_dhcp_subnet_mask",
-          "id" : 6,
-          "parser_ops" : [
-            {
-              "parameters" : [
-                {
-                  "type" : "regular",
-                  "value" : "dhcp_subnet_mask"
-                }
-              ],
-              "op" : "extract"
-            }
-          ],
-          "transitions" : [
-            {
-              "value" : "default",
-              "mask" : null,
-              "next_state" : "parse_dhcp_option"
-            }
-          ],
-          "transition_key" : []
-        },
-        {
-          "name" : "parse_dhcp_router",
-          "id" : 7,
-          "parser_ops" : [
-            {
-              "parameters" : [
-                {
-                  "type" : "regular",
-                  "value" : "dhcp_router"
-                }
-              ],
-              "op" : "extract"
-            }
-          ],
-          "transitions" : [
-            {
-              "value" : "default",
-              "mask" : null,
-              "next_state" : "parse_dhcp_option"
-            }
-          ],
-          "transition_key" : []
-        },
-        {
-          "name" : "parse_requested_ip_address",
-          "id" : 8,
-          "parser_ops" : [
-            {
-              "parameters" : [
-                {
-                  "type" : "regular",
-                  "value" : "dhcp_requested_ip_address"
-                }
-              ],
-              "op" : "extract"
-            }
-          ],
-          "transitions" : [
-            {
-              "value" : "default",
-              "mask" : null,
-              "next_state" : "parse_dhcp_option"
-            }
-          ],
-          "transition_key" : []
-        },
-        {
-          "name" : "parse_dhcp_message_type",
-          "id" : 9,
-          "parser_ops" : [
-            {
-              "parameters" : [
-                {
-                  "type" : "regular",
-                  "value" : "dhcp_message_type"
-                }
-              ],
-              "op" : "extract"
-            }
-          ],
-          "transitions" : [
-            {
-              "value" : "default",
-              "mask" : null,
-              "next_state" : "parse_dhcp_option"
-            }
-          ],
-          "transition_key" : []
-        },
-        {
-          "name" : "parse_dhcp_server_identifier",
-          "id" : 10,
-          "parser_ops" : [
-            {
-              "parameters" : [
-                {
-                  "type" : "regular",
-                  "value" : "dhcp_server_identifier"
-                }
-              ],
-              "op" : "extract"
-            }
-          ],
-          "transitions" : [
-            {
-              "value" : "default",
-              "mask" : null,
-              "next_state" : "parse_dhcp_option"
-            }
-          ],
-          "transition_key" : []
         }
       ]
     }
@@ -772,133 +327,17 @@
       "id" : 0,
       "source_info" : {
         "filename" : "basic.p4",
-        "line" : 369,
+        "line" : 241,
         "column" : 8,
         "source_fragment" : "MyDeparser"
       },
-      "order" : ["ethernet", "arp", "ipv4", "udp", "bootp", "dhcp_subnet_mask", "dhcp_router", "dhcp_message_type", "dhcp_server_identifier", "dhcp_requested_ip_address"]
+      "order" : ["ethernet", "ipv4"]
     }
   ],
   "meter_arrays" : [],
   "counter_arrays" : [],
-  "register_arrays" : [
-    {
-      "name" : "MyIngress.bloom_filter_1",
-      "id" : 0,
-      "source_info" : {
-        "filename" : "basic.p4",
-        "line" : 243,
-        "column" : 27,
-        "source_fragment" : "bloom_filter_1"
-      },
-      "size" : 4096,
-      "bitwidth" : 1
-    },
-    {
-      "name" : "MyIngress.bloom_filter_2",
-      "id" : 1,
-      "source_info" : {
-        "filename" : "basic.p4",
-        "line" : 244,
-        "column" : 27,
-        "source_fragment" : "bloom_filter_2"
-      },
-      "size" : 4096,
-      "bitwidth" : 1
-    }
-  ],
-  "calculations" : [
-    {
-      "name" : "calc",
-      "id" : 0,
-      "algo" : "crc16",
-      "input" : [
-        {
-          "type" : "field",
-          "value" : ["bootp", "CIAddr"]
-        },
-        {
-          "type" : "field",
-          "value" : ["bootp", "CHAddr"]
-        }
-      ]
-    },
-    {
-      "name" : "calc_0",
-      "id" : 1,
-      "algo" : "crc32",
-      "input" : [
-        {
-          "type" : "field",
-          "value" : ["bootp", "CIAddr"]
-        },
-        {
-          "type" : "field",
-          "value" : ["bootp", "CHAddr"]
-        }
-      ]
-    },
-    {
-      "name" : "calc_1",
-      "id" : 2,
-      "algo" : "crc16",
-      "input" : [
-        {
-          "type" : "field",
-          "value" : ["arp", "srcIP"]
-        },
-        {
-          "type" : "field",
-          "value" : ["arp", "srcMAC"]
-        }
-      ]
-    },
-    {
-      "name" : "calc_2",
-      "id" : 3,
-      "algo" : "crc32",
-      "input" : [
-        {
-          "type" : "field",
-          "value" : ["arp", "srcIP"]
-        },
-        {
-          "type" : "field",
-          "value" : ["arp", "srcMAC"]
-        }
-      ]
-    },
-    {
-      "name" : "calc_3",
-      "id" : 4,
-      "algo" : "crc16",
-      "input" : [
-        {
-          "type" : "field",
-          "value" : ["ipv4", "srcAddr"]
-        },
-        {
-          "type" : "field",
-          "value" : ["ethernet", "srcAddr"]
-        }
-      ]
-    },
-    {
-      "name" : "calc_4",
-      "id" : 5,
-      "algo" : "crc32",
-      "input" : [
-        {
-          "type" : "field",
-          "value" : ["ipv4", "srcAddr"]
-        },
-        {
-          "type" : "field",
-          "value" : ["ethernet", "srcAddr"]
-        }
-      ]
-    }
-  ],
+  "register_arrays" : [],
+  "calculations" : [],
   "learn_lists" : [],
   "actions" : [
     {
@@ -908,256 +347,35 @@
       "primitives" : []
     },
     {
-      "name" : "NoAction",
+      "name" : "MyIngress.broadcast",
       "id" : 1,
       "runtime_data" : [],
-      "primitives" : []
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["standard_metadata", "mcast_grp"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0001"
+            }
+          ],
+          "source_info" : {
+            "filename" : "basic.p4",
+            "line" : 182,
+            "column" : 8,
+            "source_fragment" : "standard_metadata.mcast_grp=1"
+          }
+        }
+      ]
     },
     {
-      "name" : "NoAction",
+      "name" : "MyIngress.drop",
       "id" : 2,
       "runtime_data" : [],
-      "primitives" : []
-    },
-    {
-      "name" : "MyIngress.compute_hashes",
-      "id" : 3,
-      "runtime_data" : [],
-      "primitives" : [
-        {
-          "op" : "modify_field_with_hash_based_offset",
-          "parameters" : [
-            {
-              "type" : "field",
-              "value" : ["scalars", "reg_pos_one_0"]
-            },
-            {
-              "type" : "hexstr",
-              "value" : "0x00000000"
-            },
-            {
-              "type" : "calculation",
-              "value" : "calc"
-            },
-            {
-              "type" : "hexstr",
-              "value" : "0x00001000"
-            }
-          ],
-          "source_info" : {
-            "filename" : "basic.p4",
-            "line" : 250,
-            "column" : 7,
-            "source_fragment" : "hash(reg_pos_one, HashAlgorithm.crc16, (bit<32>)0, {ip, mac}, (bit<32>)4096)"
-          }
-        },
-        {
-          "op" : "modify_field_with_hash_based_offset",
-          "parameters" : [
-            {
-              "type" : "field",
-              "value" : ["scalars", "reg_pos_two_0"]
-            },
-            {
-              "type" : "hexstr",
-              "value" : "0x00000000"
-            },
-            {
-              "type" : "calculation",
-              "value" : "calc_0"
-            },
-            {
-              "type" : "hexstr",
-              "value" : "0x00001000"
-            }
-          ],
-          "source_info" : {
-            "filename" : "basic.p4",
-            "line" : 251,
-            "column" : 7,
-            "source_fragment" : "hash(reg_pos_two, HashAlgorithm.crc32, (bit<32>)0, {ip, mac}, (bit<32>)4096)"
-          }
-        }
-      ]
-    },
-    {
-      "name" : "MyIngress.compute_hashes",
-      "id" : 4,
-      "runtime_data" : [],
-      "primitives" : [
-        {
-          "op" : "modify_field_with_hash_based_offset",
-          "parameters" : [
-            {
-              "type" : "field",
-              "value" : ["scalars", "reg_pos_one_0"]
-            },
-            {
-              "type" : "hexstr",
-              "value" : "0x00000000"
-            },
-            {
-              "type" : "calculation",
-              "value" : "calc_1"
-            },
-            {
-              "type" : "hexstr",
-              "value" : "0x00001000"
-            }
-          ],
-          "source_info" : {
-            "filename" : "basic.p4",
-            "line" : 250,
-            "column" : 7,
-            "source_fragment" : "hash(reg_pos_one, HashAlgorithm.crc16, (bit<32>)0, {ip, mac}, (bit<32>)4096)"
-          }
-        },
-        {
-          "op" : "modify_field_with_hash_based_offset",
-          "parameters" : [
-            {
-              "type" : "field",
-              "value" : ["scalars", "reg_pos_two_0"]
-            },
-            {
-              "type" : "hexstr",
-              "value" : "0x00000000"
-            },
-            {
-              "type" : "calculation",
-              "value" : "calc_2"
-            },
-            {
-              "type" : "hexstr",
-              "value" : "0x00001000"
-            }
-          ],
-          "source_info" : {
-            "filename" : "basic.p4",
-            "line" : 251,
-            "column" : 7,
-            "source_fragment" : "hash(reg_pos_two, HashAlgorithm.crc32, (bit<32>)0, {ip, mac}, (bit<32>)4096)"
-          }
-        }
-      ]
-    },
-    {
-      "name" : "MyIngress.compute_hashes",
-      "id" : 5,
-      "runtime_data" : [],
-      "primitives" : [
-        {
-          "op" : "modify_field_with_hash_based_offset",
-          "parameters" : [
-            {
-              "type" : "field",
-              "value" : ["scalars", "reg_pos_one_0"]
-            },
-            {
-              "type" : "hexstr",
-              "value" : "0x00000000"
-            },
-            {
-              "type" : "calculation",
-              "value" : "calc_3"
-            },
-            {
-              "type" : "hexstr",
-              "value" : "0x00001000"
-            }
-          ],
-          "source_info" : {
-            "filename" : "basic.p4",
-            "line" : 250,
-            "column" : 7,
-            "source_fragment" : "hash(reg_pos_one, HashAlgorithm.crc16, (bit<32>)0, {ip, mac}, (bit<32>)4096)"
-          }
-        },
-        {
-          "op" : "modify_field_with_hash_based_offset",
-          "parameters" : [
-            {
-              "type" : "field",
-              "value" : ["scalars", "reg_pos_two_0"]
-            },
-            {
-              "type" : "hexstr",
-              "value" : "0x00000000"
-            },
-            {
-              "type" : "calculation",
-              "value" : "calc_4"
-            },
-            {
-              "type" : "hexstr",
-              "value" : "0x00001000"
-            }
-          ],
-          "source_info" : {
-            "filename" : "basic.p4",
-            "line" : 251,
-            "column" : 7,
-            "source_fragment" : "hash(reg_pos_two, HashAlgorithm.crc32, (bit<32>)0, {ip, mac}, (bit<32>)4096)"
-          }
-        }
-      ]
-    },
-    {
-      "name" : "MyIngress.broadcast",
-      "id" : 6,
-      "runtime_data" : [],
-      "primitives" : [
-        {
-          "op" : "assign",
-          "parameters" : [
-            {
-              "type" : "field",
-              "value" : ["standard_metadata", "mcast_grp"]
-            },
-            {
-              "type" : "hexstr",
-              "value" : "0x0001"
-            }
-          ],
-          "source_info" : {
-            "filename" : "basic.p4",
-            "line" : 255,
-            "column" : 8,
-            "source_fragment" : "standard_metadata.mcast_grp=1"
-          }
-        }
-      ]
-    },
-    {
-      "name" : "MyIngress.broadcast",
-      "id" : 7,
-      "runtime_data" : [],
-      "primitives" : [
-        {
-          "op" : "assign",
-          "parameters" : [
-            {
-              "type" : "field",
-              "value" : ["standard_metadata", "mcast_grp"]
-            },
-            {
-              "type" : "hexstr",
-              "value" : "0x0001"
-            }
-          ],
-          "source_info" : {
-            "filename" : "basic.p4",
-            "line" : 255,
-            "column" : 8,
-            "source_fragment" : "standard_metadata.mcast_grp=1"
-          }
-        }
-      ]
-    },
-    {
-      "name" : "MyIngress.drop",
-      "id" : 8,
-      "runtime_data" : [],
       "primitives" : [
         {
           "op" : "mark_to_drop",
@@ -1169,95 +387,7 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
-            "line" : 259,
-            "column" : 8,
-            "source_fragment" : "mark_to_drop(standard_metadata)"
-          }
-        }
-      ]
-    },
-    {
-      "name" : "MyIngress.drop",
-      "id" : 9,
-      "runtime_data" : [],
-      "primitives" : [
-        {
-          "op" : "mark_to_drop",
-          "parameters" : [
-            {
-              "type" : "header",
-              "value" : "standard_metadata"
-            }
-          ],
-          "source_info" : {
-            "filename" : "basic.p4",
-            "line" : 259,
-            "column" : 8,
-            "source_fragment" : "mark_to_drop(standard_metadata)"
-          }
-        }
-      ]
-    },
-    {
-      "name" : "MyIngress.drop",
-      "id" : 10,
-      "runtime_data" : [],
-      "primitives" : [
-        {
-          "op" : "mark_to_drop",
-          "parameters" : [
-            {
-              "type" : "header",
-              "value" : "standard_metadata"
-            }
-          ],
-          "source_info" : {
-            "filename" : "basic.p4",
-            "line" : 259,
-            "column" : 8,
-            "source_fragment" : "mark_to_drop(standard_metadata)"
-          }
-        }
-      ]
-    },
-    {
-      "name" : "MyIngress.drop",
-      "id" : 11,
-      "runtime_data" : [],
-      "primitives" : [
-        {
-          "op" : "mark_to_drop",
-          "parameters" : [
-            {
-              "type" : "header",
-              "value" : "standard_metadata"
-            }
-          ],
-          "source_info" : {
-            "filename" : "basic.p4",
-            "line" : 259,
-            "column" : 8,
-            "source_fragment" : "mark_to_drop(standard_metadata)"
-          }
-        }
-      ]
-    },
-    {
-      "name" : "MyIngress.drop",
-      "id" : 12,
-      "runtime_data" : [],
-      "primitives" : [
-        {
-          "op" : "mark_to_drop",
-          "parameters" : [
-            {
-              "type" : "header",
-              "value" : "standard_metadata"
-            }
-          ],
-          "source_info" : {
-            "filename" : "basic.p4",
-            "line" : 259,
+            "line" : 186,
             "column" : 8,
             "source_fragment" : "mark_to_drop(standard_metadata)"
           }
@@ -1266,7 +396,7 @@
     },
     {
       "name" : "MyIngress.ether_forward",
-      "id" : 13,
+      "id" : 3,
       "runtime_data" : [
         {
           "name" : "port",
@@ -1288,7 +418,7 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
-            "line" : 263,
+            "line" : 190,
             "column" : 8,
             "source_fragment" : "standard_metadata.egress_spec = port"
           }
@@ -1296,167 +426,8 @@
       ]
     },
     {
-      "name" : "act",
-      "id" : 14,
-      "runtime_data" : [],
-      "primitives" : [
-        {
-          "op" : "register_write",
-          "parameters" : [
-            {
-              "type" : "register_array",
-              "value" : "MyIngress.bloom_filter_1"
-            },
-            {
-              "type" : "field",
-              "value" : ["scalars", "reg_pos_one_0"]
-            },
-            {
-              "type" : "hexstr",
-              "value" : "0x01"
-            }
-          ],
-          "source_info" : {
-            "filename" : "basic.p4",
-            "line" : 312,
-            "column" : 16,
-            "source_fragment" : "bloom_filter_1.write(reg_pos_one, 1)"
-          }
-        },
-        {
-          "op" : "register_write",
-          "parameters" : [
-            {
-              "type" : "register_array",
-              "value" : "MyIngress.bloom_filter_2"
-            },
-            {
-              "type" : "field",
-              "value" : ["scalars", "reg_pos_two_0"]
-            },
-            {
-              "type" : "hexstr",
-              "value" : "0x01"
-            }
-          ],
-          "source_info" : {
-            "filename" : "basic.p4",
-            "line" : 313,
-            "column" : 16,
-            "source_fragment" : "bloom_filter_2.write(reg_pos_two, 1)"
-          }
-        }
-      ]
-    },
-    {
-      "name" : "act_0",
-      "id" : 15,
-      "runtime_data" : [],
-      "primitives" : [
-        {
-          "op" : "register_read",
-          "parameters" : [
-            {
-              "type" : "field",
-              "value" : ["scalars", "reg_val_one_0"]
-            },
-            {
-              "type" : "register_array",
-              "value" : "MyIngress.bloom_filter_1"
-            },
-            {
-              "type" : "field",
-              "value" : ["scalars", "reg_pos_one_0"]
-            }
-          ],
-          "source_info" : {
-            "filename" : "basic.p4",
-            "line" : 317,
-            "column" : 12,
-            "source_fragment" : "bloom_filter_1.read(reg_val_one, reg_pos_one)"
-          }
-        },
-        {
-          "op" : "register_read",
-          "parameters" : [
-            {
-              "type" : "field",
-              "value" : ["scalars", "reg_val_two_0"]
-            },
-            {
-              "type" : "register_array",
-              "value" : "MyIngress.bloom_filter_2"
-            },
-            {
-              "type" : "field",
-              "value" : ["scalars", "reg_pos_two_0"]
-            }
-          ],
-          "source_info" : {
-            "filename" : "basic.p4",
-            "line" : 318,
-            "column" : 12,
-            "source_fragment" : "bloom_filter_2.read(reg_val_two, reg_pos_two)"
-          }
-        }
-      ]
-    },
-    {
-      "name" : "act_1",
-      "id" : 16,
-      "runtime_data" : [],
-      "primitives" : [
-        {
-          "op" : "register_read",
-          "parameters" : [
-            {
-              "type" : "field",
-              "value" : ["scalars", "reg_val_one_0"]
-            },
-            {
-              "type" : "register_array",
-              "value" : "MyIngress.bloom_filter_1"
-            },
-            {
-              "type" : "field",
-              "value" : ["scalars", "reg_pos_one_0"]
-            }
-          ],
-          "source_info" : {
-            "filename" : "basic.p4",
-            "line" : 326,
-            "column" : 12,
-            "source_fragment" : "bloom_filter_1.read(reg_val_one, reg_pos_one)"
-          }
-        },
-        {
-          "op" : "register_read",
-          "parameters" : [
-            {
-              "type" : "field",
-              "value" : ["scalars", "reg_val_two_0"]
-            },
-            {
-              "type" : "register_array",
-              "value" : "MyIngress.bloom_filter_2"
-            },
-            {
-              "type" : "field",
-              "value" : ["scalars", "reg_pos_two_0"]
-            }
-          ],
-          "source_info" : {
-            "filename" : "basic.p4",
-            "line" : 327,
-            "column" : 12,
-            "source_fragment" : "bloom_filter_2.read(reg_val_two, reg_pos_two)"
-          }
-        }
-      ]
-    },
-    {
       "name" : "MyEgress.drop",
-      "id" : 17,
+      "id" : 4,
       "runtime_data" : [],
       "primitives" : [
         {
@@ -1469,7 +440,7 @@
           ],
           "source_info" : {
             "filename" : "basic.p4",
-            "line" : 348,
+            "line" : 220,
             "column" : 8,
             "source_fragment" : "mark_to_drop(standard_metadata)"
           }
@@ -1483,207 +454,18 @@
       "id" : 0,
       "source_info" : {
         "filename" : "basic.p4",
-        "line" : 239,
+        "line" : 177,
         "column" : 8,
         "source_fragment" : "MyIngress"
       },
-      "init_table" : "node_2",
+      "init_table" : "MyIngress.ether_lpm",
       "tables" : [
         {
-          "name" : "MyIngress.dhcp_check",
+          "name" : "MyIngress.ether_lpm",
           "id" : 0,
           "source_info" : {
             "filename" : "basic.p4",
-            "line" : 280,
-            "column" : 10,
-            "source_fragment" : "dhcp_check"
-          },
-          "key" : [
-            {
-              "match_type" : "exact",
-              "name" : "hdr.bootp.opCode",
-              "target" : ["bootp", "opCode"],
-              "mask" : null
-            },
-            {
-              "match_type" : "exact",
-              "name" : "standard_metadata.ingress_port",
-              "target" : ["standard_metadata", "ingress_port"],
-              "mask" : null
-            }
-          ],
-          "match_type" : "exact",
-          "type" : "simple",
-          "max_size" : 1024,
-          "with_counters" : false,
-          "support_timeout" : false,
-          "direct_meters" : null,
-          "action_ids" : [7, 9, 1],
-          "actions" : ["MyIngress.broadcast", "MyIngress.drop", "NoAction"],
-          "base_default_next" : "node_4",
-          "next_tables" : {
-            "MyIngress.broadcast" : "node_4",
-            "MyIngress.drop" : "node_4",
-            "NoAction" : "node_4"
-          },
-          "default_entry" : {
-            "action_id" : 7,
-            "action_const" : false,
-            "action_data" : [],
-            "action_entry_const" : false
-          }
-        },
-        {
-          "name" : "tbl_compute_hashes",
-          "id" : 1,
-          "source_info" : {
-            "filename" : "basic.p4",
-            "line" : 311,
-            "column" : 16,
-            "source_fragment" : "compute_hashes(hdr.bootp.CIAddr, hdr.bootp.CHAddr)"
-          },
-          "key" : [],
-          "match_type" : "exact",
-          "type" : "simple",
-          "max_size" : 1024,
-          "with_counters" : false,
-          "support_timeout" : false,
-          "direct_meters" : null,
-          "action_ids" : [3],
-          "actions" : ["MyIngress.compute_hashes"],
-          "base_default_next" : "tbl_act",
-          "next_tables" : {
-            "MyIngress.compute_hashes" : "tbl_act"
-          },
-          "default_entry" : {
-            "action_id" : 3,
-            "action_const" : true,
-            "action_data" : [],
-            "action_entry_const" : true
-          }
-        },
-        {
-          "name" : "tbl_act",
-          "id" : 2,
-          "source_info" : {
-            "filename" : "basic.p4",
-            "line" : 312,
-            "column" : 16,
-            "source_fragment" : "bloom_filter_1.write(reg_pos_one, 1); ..."
-          },
-          "key" : [],
-          "match_type" : "exact",
-          "type" : "simple",
-          "max_size" : 1024,
-          "with_counters" : false,
-          "support_timeout" : false,
-          "direct_meters" : null,
-          "action_ids" : [14],
-          "actions" : ["act"],
-          "base_default_next" : "MyIngress.check_mac_and_interface",
-          "next_tables" : {
-            "act" : "MyIngress.check_mac_and_interface"
-          },
-          "default_entry" : {
-            "action_id" : 14,
-            "action_const" : true,
-            "action_data" : [],
-            "action_entry_const" : true
-          }
-        },
-        {
-          "name" : "tbl_compute_hashes_0",
-          "id" : 3,
-          "source_info" : {
-            "filename" : "basic.p4",
-            "line" : 316,
-            "column" : 12,
-            "source_fragment" : "compute_hashes(hdr.arp.srcIP, hdr.arp.srcMAC)"
-          },
-          "key" : [],
-          "match_type" : "exact",
-          "type" : "simple",
-          "max_size" : 1024,
-          "with_counters" : false,
-          "support_timeout" : false,
-          "direct_meters" : null,
-          "action_ids" : [4],
-          "actions" : ["MyIngress.compute_hashes"],
-          "base_default_next" : "tbl_act_0",
-          "next_tables" : {
-            "MyIngress.compute_hashes" : "tbl_act_0"
-          },
-          "default_entry" : {
-            "action_id" : 4,
-            "action_const" : true,
-            "action_data" : [],
-            "action_entry_const" : true
-          }
-        },
-        {
-          "name" : "tbl_act_0",
-          "id" : 4,
-          "source_info" : {
-            "filename" : "basic.p4",
-            "line" : 317,
-            "column" : 12,
-            "source_fragment" : "bloom_filter_1.read(reg_val_one, reg_pos_one); ..."
-          },
-          "key" : [],
-          "match_type" : "exact",
-          "type" : "simple",
-          "max_size" : 1024,
-          "with_counters" : false,
-          "support_timeout" : false,
-          "direct_meters" : null,
-          "action_ids" : [15],
-          "actions" : ["act_0"],
-          "base_default_next" : "node_10",
-          "next_tables" : {
-            "act_0" : "node_10"
-          },
-          "default_entry" : {
-            "action_id" : 15,
-            "action_const" : true,
-            "action_data" : [],
-            "action_entry_const" : true
-          }
-        },
-        {
-          "name" : "tbl_drop",
-          "id" : 5,
-          "source_info" : {
-            "filename" : "basic.p4",
-            "line" : 320,
-            "column" : 16,
-            "source_fragment" : "drop()"
-          },
-          "key" : [],
-          "match_type" : "exact",
-          "type" : "simple",
-          "max_size" : 1024,
-          "with_counters" : false,
-          "support_timeout" : false,
-          "direct_meters" : null,
-          "action_ids" : [11],
-          "actions" : ["MyIngress.drop"],
-          "base_default_next" : "MyIngress.check_mac_and_interface",
-          "next_tables" : {
-            "MyIngress.drop" : "MyIngress.check_mac_and_interface"
-          },
-          "default_entry" : {
-            "action_id" : 11,
-            "action_const" : true,
-            "action_data" : [],
-            "action_entry_const" : true
-          }
-        },
-        {
-          "name" : "MyIngress.ether_lpm",
-          "id" : 6,
-          "source_info" : {
-            "filename" : "basic.p4",
-            "line" : 266,
+            "line" : 193,
             "column" : 10,
             "source_fragment" : "ether_lpm"
           },
@@ -1701,147 +483,17 @@
           "with_counters" : false,
           "support_timeout" : false,
           "direct_meters" : null,
-          "action_ids" : [6, 13, 8, 0],
+          "action_ids" : [1, 3, 2, 0],
           "actions" : ["MyIngress.broadcast", "MyIngress.ether_forward", "MyIngress.drop", "NoAction"],
-          "base_default_next" : "MyIngress.check_mac_and_interface",
-          "next_tables" : {
-            "MyIngress.broadcast" : "MyIngress.check_mac_and_interface",
-            "MyIngress.ether_forward" : "MyIngress.check_mac_and_interface",
-            "MyIngress.drop" : "MyIngress.check_mac_and_interface",
-            "NoAction" : "MyIngress.check_mac_and_interface"
-          },
-          "default_entry" : {
-            "action_id" : 6,
-            "action_const" : false,
-            "action_data" : [],
-            "action_entry_const" : false
-          }
-        },
-        {
-          "name" : "tbl_compute_hashes_1",
-          "id" : 7,
-          "source_info" : {
-            "filename" : "basic.p4",
-            "line" : 325,
-            "column" : 12,
-            "source_fragment" : "compute_hashes(hdr.ipv4.srcAddr, hdr.ethernet.srcAddr)"
-          },
-          "key" : [],
-          "match_type" : "exact",
-          "type" : "simple",
-          "max_size" : 1024,
-          "with_counters" : false,
-          "support_timeout" : false,
-          "direct_meters" : null,
-          "action_ids" : [5],
-          "actions" : ["MyIngress.compute_hashes"],
-          "base_default_next" : "tbl_act_1",
-          "next_tables" : {
-            "MyIngress.compute_hashes" : "tbl_act_1"
-          },
-          "default_entry" : {
-            "action_id" : 5,
-            "action_const" : true,
-            "action_data" : [],
-            "action_entry_const" : true
-          }
-        },
-        {
-          "name" : "tbl_act_1",
-          "id" : 8,
-          "source_info" : {
-            "filename" : "basic.p4",
-            "line" : 326,
-            "column" : 12,
-            "source_fragment" : "bloom_filter_1.read(reg_val_one, reg_pos_one); ..."
-          },
-          "key" : [],
-          "match_type" : "exact",
-          "type" : "simple",
-          "max_size" : 1024,
-          "with_counters" : false,
-          "support_timeout" : false,
-          "direct_meters" : null,
-          "action_ids" : [16],
-          "actions" : ["act_1"],
-          "base_default_next" : "node_16",
-          "next_tables" : {
-            "act_1" : "node_16"
-          },
-          "default_entry" : {
-            "action_id" : 16,
-            "action_const" : true,
-            "action_data" : [],
-            "action_entry_const" : true
-          }
-        },
-        {
-          "name" : "tbl_drop_0",
-          "id" : 9,
-          "source_info" : {
-            "filename" : "basic.p4",
-            "line" : 329,
-            "column" : 16,
-            "source_fragment" : "drop()"
-          },
-          "key" : [],
-          "match_type" : "exact",
-          "type" : "simple",
-          "max_size" : 1024,
-          "with_counters" : false,
-          "support_timeout" : false,
-          "direct_meters" : null,
-          "action_ids" : [12],
-          "actions" : ["MyIngress.drop"],
-          "base_default_next" : "MyIngress.check_mac_and_interface",
-          "next_tables" : {
-            "MyIngress.drop" : "MyIngress.check_mac_and_interface"
-          },
-          "default_entry" : {
-            "action_id" : 12,
-            "action_const" : true,
-            "action_data" : [],
-            "action_entry_const" : true
-          }
-        },
-        {
-          "name" : "MyIngress.check_mac_and_interface",
-          "id" : 10,
-          "source_info" : {
-            "filename" : "basic.p4",
-            "line" : 294,
-            "column" : 10,
-            "source_fragment" : "check_mac_and_interface"
-          },
-          "key" : [
-            {
-              "match_type" : "exact",
-              "name" : "standard_metadata.ingress_port",
-              "target" : ["standard_metadata", "ingress_port"],
-              "mask" : null
-            },
-            {
-              "match_type" : "lpm",
-              "name" : "hdr.ethernet.srcAddr",
-              "target" : ["ethernet", "srcAddr"],
-              "mask" : null
-            }
-          ],
-          "match_type" : "lpm",
-          "type" : "simple",
-          "max_size" : 1024,
-          "with_counters" : false,
-          "support_timeout" : false,
-          "direct_meters" : null,
-          "action_ids" : [10, 2],
-          "actions" : ["MyIngress.drop", "NoAction"],
           "base_default_next" : null,
           "next_tables" : {
+            "MyIngress.broadcast" : null,
+            "MyIngress.ether_forward" : null,
             "MyIngress.drop" : null,
             "NoAction" : null
           },
           "default_entry" : {
-            "action_id" : 2,
+            "action_id" : 1,
             "action_const" : false,
             "action_data" : [],
             "action_entry_const" : false
@@ -1849,341 +501,25 @@
         }
       ],
       "action_profiles" : [],
-      "conditionals" : [
-        {
-          "name" : "node_2",
-          "id" : 0,
-          "source_info" : {
-            "filename" : "basic.p4",
-            "line" : 308,
-            "column" : 12,
-            "source_fragment" : "hdr.ethernet.isValid() && hdr.ipv4.isValid() && hdr.udp.isValid() && hdr.bootp.isValid()"
-          },
-          "expression" : {
-            "type" : "expression",
-            "value" : {
-              "op" : "and",
-              "left" : {
-                "type" : "expression",
-                "value" : {
-                  "op" : "and",
-                  "left" : {
-                    "type" : "expression",
-                    "value" : {
-                      "op" : "and",
-                      "left" : {
-                        "type" : "expression",
-                        "value" : {
-                          "op" : "d2b",
-                          "left" : null,
-                          "right" : {
-                            "type" : "field",
-                            "value" : ["ethernet", "$valid$"]
-                          }
-                        }
-                      },
-                      "right" : {
-                        "type" : "expression",
-                        "value" : {
-                          "op" : "d2b",
-                          "left" : null,
-                          "right" : {
-                            "type" : "field",
-                            "value" : ["ipv4", "$valid$"]
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "right" : {
-                    "type" : "expression",
-                    "value" : {
-                      "op" : "d2b",
-                      "left" : null,
-                      "right" : {
-                        "type" : "field",
-                        "value" : ["udp", "$valid$"]
-                      }
-                    }
-                  }
-                }
-              },
-              "right" : {
-                "type" : "expression",
-                "value" : {
-                  "op" : "d2b",
-                  "left" : null,
-                  "right" : {
-                    "type" : "field",
-                    "value" : ["bootp", "$valid$"]
-                  }
-                }
-              }
-            }
-          },
-          "true_next" : "MyIngress.dhcp_check",
-          "false_next" : "node_7"
-        },
-        {
-          "name" : "node_4",
-          "id" : 1,
-          "source_info" : {
-            "filename" : "basic.p4",
-            "line" : 310,
-            "column" : 16,
-            "source_fragment" : "hdr.dhcp_message_type.type == 5"
-          },
-          "expression" : {
-            "type" : "expression",
-            "value" : {
-              "op" : "==",
-              "left" : {
-                "type" : "field",
-                "value" : ["dhcp_message_type", "type"]
-              },
-              "right" : {
-                "type" : "hexstr",
-                "value" : "0x05"
-              }
-            }
-          },
-          "true_next" : "tbl_compute_hashes",
-          "false_next" : "MyIngress.check_mac_and_interface"
-        },
-        {
-          "name" : "node_7",
-          "id" : 2,
-          "source_info" : {
-            "filename" : "basic.p4",
-            "line" : 315,
-            "column" : 19,
-            "source_fragment" : "hdr.ethernet.isValid() && hdr.arp.isValid() && hdr.arp.opCode == 2"
-          },
-          "expression" : {
-            "type" : "expression",
-            "value" : {
-              "op" : "and",
-              "left" : {
-                "type" : "expression",
-                "value" : {
-                  "op" : "and",
-                  "left" : {
-                    "type" : "expression",
-                    "value" : {
-                      "op" : "d2b",
-                      "left" : null,
-                      "right" : {
-                        "type" : "field",
-                        "value" : ["ethernet", "$valid$"]
-                      }
-                    }
-                  },
-                  "right" : {
-                    "type" : "expression",
-                    "value" : {
-                      "op" : "d2b",
-                      "left" : null,
-                      "right" : {
-                        "type" : "field",
-                        "value" : ["arp", "$valid$"]
-                      }
-                    }
-                  }
-                }
-              },
-              "right" : {
-                "type" : "expression",
-                "value" : {
-                  "op" : "==",
-                  "left" : {
-                    "type" : "field",
-                    "value" : ["arp", "opCode"]
-                  },
-                  "right" : {
-                    "type" : "hexstr",
-                    "value" : "0x0002"
-                  }
-                }
-              }
-            }
-          },
-          "true_next" : "tbl_compute_hashes_0",
-          "false_next" : "node_13"
-        },
-        {
-          "name" : "node_10",
-          "id" : 3,
-          "source_info" : {
-            "filename" : "basic.p4",
-            "line" : 319,
-            "column" : 16,
-            "source_fragment" : "reg_val_one != 1 || reg_val_two != 1"
-          },
-          "expression" : {
-            "type" : "expression",
-            "value" : {
-              "op" : "or",
-              "left" : {
-                "type" : "expression",
-                "value" : {
-                  "op" : "!=",
-                  "left" : {
-                    "type" : "field",
-                    "value" : ["scalars", "reg_val_one_0"]
-                  },
-                  "right" : {
-                    "type" : "hexstr",
-                    "value" : "0x01"
-                  }
-                }
-              },
-              "right" : {
-                "type" : "expression",
-                "value" : {
-                  "op" : "!=",
-                  "left" : {
-                    "type" : "field",
-                    "value" : ["scalars", "reg_val_two_0"]
-                  },
-                  "right" : {
-                    "type" : "hexstr",
-                    "value" : "0x01"
-                  }
-                }
-              }
-            }
-          },
-          "true_next" : "tbl_drop",
-          "false_next" : "MyIngress.ether_lpm"
-        },
-        {
-          "name" : "node_13",
-          "id" : 4,
-          "source_info" : {
-            "filename" : "basic.p4",
-            "line" : 324,
-            "column" : 19,
-            "source_fragment" : "hdr.ethernet.isValid() && hdr.ipv4.isValid()"
-          },
-          "expression" : {
-            "type" : "expression",
-            "value" : {
-              "op" : "and",
-              "left" : {
-                "type" : "expression",
-                "value" : {
-                  "op" : "d2b",
-                  "left" : null,
-                  "right" : {
-                    "type" : "field",
-                    "value" : ["ethernet", "$valid$"]
-                  }
-                }
-              },
-              "right" : {
-                "type" : "expression",
-                "value" : {
-                  "op" : "d2b",
-                  "left" : null,
-                  "right" : {
-                    "type" : "field",
-                    "value" : ["ipv4", "$valid$"]
-                  }
-                }
-              }
-            }
-          },
-          "true_next" : "tbl_compute_hashes_1",
-          "false_next" : "node_19"
-        },
-        {
-          "name" : "node_16",
-          "id" : 5,
-          "source_info" : {
-            "filename" : "basic.p4",
-            "line" : 328,
-            "column" : 16,
-            "source_fragment" : "reg_val_one != 1 || reg_val_two != 1"
-          },
-          "expression" : {
-            "type" : "expression",
-            "value" : {
-              "op" : "or",
-              "left" : {
-                "type" : "expression",
-                "value" : {
-                  "op" : "!=",
-                  "left" : {
-                    "type" : "field",
-                    "value" : ["scalars", "reg_val_one_0"]
-                  },
-                  "right" : {
-                    "type" : "hexstr",
-                    "value" : "0x01"
-                  }
-                }
-              },
-              "right" : {
-                "type" : "expression",
-                "value" : {
-                  "op" : "!=",
-                  "left" : {
-                    "type" : "field",
-                    "value" : ["scalars", "reg_val_two_0"]
-                  },
-                  "right" : {
-                    "type" : "hexstr",
-                    "value" : "0x01"
-                  }
-                }
-              }
-            }
-          },
-          "true_next" : "tbl_drop_0",
-          "false_next" : "MyIngress.ether_lpm"
-        },
-        {
-          "name" : "node_19",
-          "id" : 6,
-          "source_info" : {
-            "filename" : "basic.p4",
-            "line" : 333,
-            "column" : 19,
-            "source_fragment" : "hdr.ethernet.isValid()"
-          },
-          "expression" : {
-            "type" : "expression",
-            "value" : {
-              "op" : "d2b",
-              "left" : null,
-              "right" : {
-                "type" : "field",
-                "value" : ["ethernet", "$valid$"]
-              }
-            }
-          },
-          "true_next" : "MyIngress.ether_lpm",
-          "false_next" : "MyIngress.check_mac_and_interface"
-        }
-      ]
+      "conditionals" : []
     },
     {
       "name" : "egress",
       "id" : 1,
       "source_info" : {
         "filename" : "basic.p4",
-        "line" : 344,
+        "line" : 216,
         "column" : 8,
         "source_fragment" : "MyEgress"
       },
-      "init_table" : "node_24",
+      "init_table" : "node_5",
       "tables" : [
         {
-          "name" : "tbl_drop_1",
-          "id" : 11,
+          "name" : "tbl_drop",
+          "id" : 1,
           "source_info" : {
             "filename" : "basic.p4",
-            "line" : 352,
+            "line" : 224,
             "column" : 13,
             "source_fragment" : "drop()"
           },
@@ -2194,14 +530,14 @@
           "with_counters" : false,
           "support_timeout" : false,
           "direct_meters" : null,
-          "action_ids" : [17],
+          "action_ids" : [4],
           "actions" : ["MyEgress.drop"],
           "base_default_next" : null,
           "next_tables" : {
             "MyEgress.drop" : null
           },
           "default_entry" : {
-            "action_id" : 17,
+            "action_id" : 4,
             "action_const" : true,
             "action_data" : [],
             "action_entry_const" : true
@@ -2211,11 +547,11 @@
       "action_profiles" : [],
       "conditionals" : [
         {
-          "name" : "node_24",
-          "id" : 7,
+          "name" : "node_5",
+          "id" : 0,
           "source_info" : {
             "filename" : "basic.p4",
-            "line" : 351,
+            "line" : 223,
             "column" : 11,
             "source_fragment" : "standard_metadata.egress_port == standard_metadata.ingress_port"
           },
@@ -2234,7 +570,7 @@
             }
           },
           "false_next" : null,
-          "true_next" : "tbl_drop_1"
+          "true_next" : "tbl_drop"
         }
       ]
     }

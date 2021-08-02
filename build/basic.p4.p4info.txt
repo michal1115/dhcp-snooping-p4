@@ -27,73 +27,11 @@ tables {
   }
   size: 1024
 }
-tables {
-  preamble {
-    id: 33574978
-    name: "MyIngress.dhcp_check"
-    alias: "dhcp_check"
-  }
-  match_fields {
-    id: 1
-    name: "hdr.bootp.opCode"
-    bitwidth: 8
-    match_type: EXACT
-  }
-  match_fields {
-    id: 2
-    name: "standard_metadata.ingress_port"
-    bitwidth: 9
-    match_type: EXACT
-  }
-  action_refs {
-    id: 16814737
-  }
-  action_refs {
-    id: 16805608
-  }
-  action_refs {
-    id: 16800567
-  }
-  size: 1024
-}
-tables {
-  preamble {
-    id: 33587978
-    name: "MyIngress.check_mac_and_interface"
-    alias: "check_mac_and_interface"
-  }
-  match_fields {
-    id: 1
-    name: "standard_metadata.ingress_port"
-    bitwidth: 9
-    match_type: EXACT
-  }
-  match_fields {
-    id: 2
-    name: "hdr.ethernet.srcAddr"
-    bitwidth: 48
-    match_type: LPM
-  }
-  action_refs {
-    id: 16805608
-  }
-  action_refs {
-    id: 16800567
-  }
-  size: 1024
-}
 actions {
   preamble {
     id: 16800567
     name: "NoAction"
     alias: "NoAction"
-  }
-}
-actions {
-  preamble {
-    id: 16783177
-    name: "MyIngress.compute_hashes"
-    alias: "compute_hashes"
   }
 }
 actions {
@@ -128,36 +66,6 @@ actions {
     name: "MyEgress.drop"
     alias: "MyEgress.drop"
   }
-}
-registers {
-  preamble {
-    id: 369100080
-    name: "MyIngress.bloom_filter_1"
-    alias: "bloom_filter_1"
-  }
-  type_spec {
-    bitstring {
-      bit {
-        bitwidth: 1
-      }
-    }
-  }
-  size: 4096
-}
-registers {
-  preamble {
-    id: 369156245
-    name: "MyIngress.bloom_filter_2"
-    alias: "bloom_filter_2"
-  }
-  type_spec {
-    bitstring {
-      bit {
-        bitwidth: 1
-      }
-    }
-  }
-  size: 4096
 }
 type_info {
 }
