@@ -62,6 +62,20 @@
       "default_action": true,
       "action_name": "MyIngress.drop",
       "action_params": { }
+    },
+    {
+      "table": "MyIngress.should_save_dhcp_ack_check",
+      "match": {
+        "standard_metadata.ingress_port": [2]
+      },
+      "action_name": "MyIngress.save_dhcp_ack",
+      "action_params": { }
+    },
+    {
+      "table": "MyIngress.should_save_dhcp_ack_check",
+      "default_action": true,
+      "action_name": "NoAction",
+      "action_params": { }
     }
   ],
   "multicast_group_entries" : [

@@ -158,8 +158,14 @@ parser MyParser(packet_in packet,
         packet.extract(hdr.ethernet);
         transition select(hdr.ethernet.etherType) {
             TYPE_IPV4: parse_ipv4;
+            TYPE_ARP: parse_arp;
             default: accept;
         }
+    }
+
+    state parse_arp {
+        packet.extract(hdr.arp);
+        transition accept;
     }
 
     state parse_ipv4 {
@@ -256,9 +262,24 @@ control MyVerifyChecksum(inout headers hdr, inout metadata meta) {
 control MyIngress(inout headers hdr,
                   inout metadata meta,
                   inout standard_metadata_t standard_metadata) {
+    register<bit<BLOOM_FILTER_BIT_WIDTH>>(BLOOM_FILTER_ENTRIES) bloom_filter_1;
+    register<bit<BLOOM_FILTER_BIT_WIDTH>>(BLOOM_FILTER_ENTRIES) bloom_filter_2;
+    bit<32> reg_pos_one; bit<32> reg_pos_two;
+    bit<1> reg_val_one; bit<1> reg_val_two;
+
+    action compute_hashes(ip4Addr_t ip, macAddr_t mac){
+        hash(reg_pos_one, HashAlgorithm.crc16, (bit<32>)0, {ip, mac}, (bit<32>)BLOOM_FILTER_ENTRIES);
+        hash(reg_pos_two, HashAlgorithm.crc32, (bit<32>)0, {ip, mac}, (bit<32>)BLOOM_FILTER_ENTRIES);
+    }
 
     action broadcast() {
         standard_metadata.mcast_grp=1;
+    }
+
+    action save_dhcp_ack() {
+        compute_hashes(hdr.bootp.CIAddr, hdr.bootp.CHAddr);
+        bloom_filter_1.write(reg_pos_one, 1);
+        bloom_filter_2.write(reg_pos_two, 1);
     }
 
     action drop() {
@@ -293,13 +314,37 @@ control MyIngress(inout headers hdr,
             NoAction;
         }
         size = 1024;
-        default_action = broadcast();
+        default_action = drop();
+    }
+
+    table should_save_dhcp_ack_check {
+        key = {
+            standard_metadata.ingress_port: exact;
+        }
+        actions = {
+            save_dhcp_ack;
+            NoAction;
+        }
+        size = 1024;
+        default_action = NoAction();
     }
 
     apply {
         if (hdr.ethernet.isValid() && hdr.ipv4.isValid() && hdr.udp.isValid() && hdr.bootp.isValid() && hdr.dhcp_message_type.isValid() 
             && (hdr.dhcp_message_type.type == 2 || hdr.dhcp_message_type.type == 5 || hdr.dhcp_message_type.type == 6)){
                 dhcp_server_check.apply();
+                if (hdr.dhcp_message_type.type == 5){
+                    should_save_dhcp_ack_check.apply();
+                }
+        } else if (hdr.ethernet.isValid() && hdr.arp.isValid() && hdr.arp.opCode == 2) {
+            compute_hashes(hdr.arp.srcIP, hdr.arp.srcMAC);
+            bloom_filter_1.read(reg_val_one, reg_pos_one);
+            bloom_filter_2.read(reg_val_two, reg_pos_two);
+            if (reg_val_one != 1 || reg_val_two != 1){
+                drop();
+            } else {
+                ether_lpm.apply();
+            }
         } else if (hdr.ethernet.isValid()){
             ether_lpm.apply();
         }
