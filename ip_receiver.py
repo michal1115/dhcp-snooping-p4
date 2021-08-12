@@ -9,4 +9,5 @@ if __name__ == "__main__":
 
     while True:
         data, addr = sock.recvfrom(1024)
+        print(addr[0])
         print(data)

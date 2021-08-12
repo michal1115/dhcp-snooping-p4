@@ -76,6 +76,48 @@
       "default_action": true,
       "action_name": "NoAction",
       "action_params": { }
+    },
+    {
+      "table": "MyIngress.check_mac_and_interface",
+      "match": {
+        "standard_metadata.ingress_port": [1],
+        "hdr.ethernet.srcAddr": ["08:00:00:00:00:01"]
+      },
+      "action_name": "NoAction",
+      "action_params": { }
+    },
+    {
+      "table": "MyIngress.check_mac_and_interface",
+      "match": {
+        "standard_metadata.ingress_port": [2],
+        "hdr.ethernet.srcAddr": ["08:00:00:00:00:02"]
+      },
+      "action_name": "NoAction",
+      "action_params": { }
+    },
+    {
+      "table": "MyIngress.check_mac_and_interface",
+      "match": {
+        "standard_metadata.ingress_port": [3],
+        "hdr.ethernet.srcAddr": ["08:00:00:00:00:03"]
+      },
+      "action_name": "NoAction",
+      "action_params": { }
+    },
+    {
+      "table": "MyIngress.check_mac_and_interface",
+      "match": {
+        "standard_metadata.ingress_port": [4],
+        "hdr.ethernet.srcAddr": ["08:00:00:00:00:04"]
+      },
+      "action_name": "NoAction",
+      "action_params": { }
+    },
+    {
+      "table": "MyIngress.check_mac_and_interface",
+      "default_action": true,
+      "action_name": "NoAction",
+      "action_params": { }
     }
   ],
   "multicast_group_entries" : [

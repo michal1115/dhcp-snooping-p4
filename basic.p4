@@ -329,6 +329,19 @@ control MyIngress(inout headers hdr,
         default_action = NoAction();
     }
 
+    table check_mac_and_interface {
+        key = {
+            standard_metadata.ingress_port: exact;
+            hdr.ethernet.srcAddr: exact;
+        }
+        actions = {
+            drop;
+            NoAction;
+        }
+        size = 1024;
+        default_action = NoAction();
+    }
+
     apply {
         if (hdr.ethernet.isValid() && hdr.ipv4.isValid() && hdr.udp.isValid() && hdr.bootp.isValid() && hdr.dhcp_message_type.isValid() 
             && (hdr.dhcp_message_type.type == 2 || hdr.dhcp_message_type.type == 5 || hdr.dhcp_message_type.type == 6)){
@@ -345,9 +358,19 @@ control MyIngress(inout headers hdr,
             } else {
                 ether_lpm.apply();
             }
+        } else if (hdr.ethernet.isValid() && hdr.ipv4.isValid()) {
+            compute_hashes(hdr.ipv4.srcAddr, hdr.ethernet.srcAddr);
+            bloom_filter_1.read(reg_val_one, reg_pos_one);
+            bloom_filter_2.read(reg_val_two, reg_pos_two);
+            if (reg_val_one != 1 || reg_val_two != 1){
+                drop();
+            } else {
+                ether_lpm.apply();
+            }
         } else if (hdr.ethernet.isValid()){
             ether_lpm.apply();
         }
+        check_mac_and_interface.apply();
     }
 }
 
