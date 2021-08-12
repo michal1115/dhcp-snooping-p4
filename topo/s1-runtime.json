@@ -116,7 +116,7 @@
     {
       "table": "MyIngress.check_mac_and_interface",
       "default_action": true,
-      "action_name": "NoAction",
+      "action_name": "MyIngress.drop",
       "action_params": { }
     }
   ],

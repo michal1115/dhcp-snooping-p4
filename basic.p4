@@ -339,16 +339,19 @@ control MyIngress(inout headers hdr,
             NoAction;
         }
         size = 1024;
-        default_action = NoAction();
+        default_action = drop();
     }
 
     apply {
-        if (hdr.ethernet.isValid() && hdr.ipv4.isValid() && hdr.udp.isValid() && hdr.bootp.isValid() && hdr.dhcp_message_type.isValid() 
-            && (hdr.dhcp_message_type.type == 2 || hdr.dhcp_message_type.type == 5 || hdr.dhcp_message_type.type == 6)){
+        if (hdr.ethernet.isValid() && hdr.ipv4.isValid() && hdr.udp.isValid() && hdr.bootp.isValid() && hdr.dhcp_message_type.isValid()){
+            if(hdr.dhcp_message_type.type == 2 || hdr.dhcp_message_type.type == 5 || hdr.dhcp_message_type.type == 6){
                 dhcp_server_check.apply();
                 if (hdr.dhcp_message_type.type == 5){
                     should_save_dhcp_ack_check.apply();
                 }
+            } else {
+                broadcast();
+            }
         } else if (hdr.ethernet.isValid() && hdr.arp.isValid() && hdr.arp.opCode == 2) {
             compute_hashes(hdr.arp.srcIP, hdr.arp.srcMAC);
             bloom_filter_1.read(reg_val_one, reg_pos_one);
