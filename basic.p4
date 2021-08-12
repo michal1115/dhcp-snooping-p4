@@ -297,9 +297,12 @@ control MyIngress(inout headers hdr,
     }
 
     apply {
-        if (hdr.ethernet.isValid() && hdr.ipv4.isValid() && hdr.udp.isValid() && hdr.bootp.isValid() && hdr.dhcp_message_type.isValid() 
-            && (hdr.dhcp_message_type.type == 2 || hdr.dhcp_message_type.type == 5 || hdr.dhcp_message_type.type == 6)){
+        if (hdr.ethernet.isValid() && hdr.ipv4.isValid() && hdr.udp.isValid() && hdr.bootp.isValid() && hdr.dhcp_message_type.isValid()){
+            if(hdr.dhcp_message_type.type == 2 || hdr.dhcp_message_type.type == 5 || hdr.dhcp_message_type.type == 6){
                 dhcp_server_check.apply();
+            } else {
+                broadcast();
+            }
         } else if (hdr.ethernet.isValid()){
             ether_lpm.apply();
         }
